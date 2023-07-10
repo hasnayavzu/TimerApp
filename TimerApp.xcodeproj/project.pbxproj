@@ -14,6 +14,8 @@
 		306643222A5C37C20022D709 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306643212A5C37C20022D709 /* MainView.swift */; };
 		306643242A5C3DC70022D709 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306643232A5C3DC70022D709 /* TabButton.swift */; };
 		306643262A5C44730022D709 /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306643252A5C44730022D709 /* CustomCorners.swift */; };
+		306643282A5C576E0022D709 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306643272A5C576E0022D709 /* SideMenu.swift */; };
+		3066432A2A5C57FE0022D709 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306643292A5C57FE0022D709 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		306643212A5C37C20022D709 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		306643232A5C3DC70022D709 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		306643252A5C44730022D709 /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
+		306643272A5C576E0022D709 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+		306643292A5C57FE0022D709 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 				306643212A5C37C20022D709 /* MainView.swift */,
 				306643232A5C3DC70022D709 /* TabButton.swift */,
 				306643252A5C44730022D709 /* CustomCorners.swift */,
+				306643272A5C576E0022D709 /* SideMenu.swift */,
+				306643292A5C57FE0022D709 /* Home.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -158,7 +164,9 @@
 			files = (
 				306643142A5C37640022D709 /* ContentView.swift in Sources */,
 				306643242A5C3DC70022D709 /* TabButton.swift in Sources */,
+				3066432A2A5C57FE0022D709 /* Home.swift in Sources */,
 				306643222A5C37C20022D709 /* MainView.swift in Sources */,
+				306643282A5C576E0022D709 /* SideMenu.swift in Sources */,
 				306643122A5C37640022D709 /* TimerAppApp.swift in Sources */,
 				306643262A5C44730022D709 /* CustomCorners.swift in Sources */,
 			);

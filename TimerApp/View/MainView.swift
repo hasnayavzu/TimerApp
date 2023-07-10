@@ -9,53 +9,36 @@ import SwiftUI
 
 struct MainView: View {
     @State var selectedTab = "Timer"
-    
-    @Namespace var animation
+    @State var showMenu = false
     
     var body: some View {
         ZStack {
             Color.blue
                 .ignoresSafeArea(.all)
             // Side Menu
-            VStack(alignment: .leading, spacing: 15, content: {
-                // Profile Pic.
-                VStack(alignment: .leading, content: {
-                    Image("hasan")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 70, height: 70)
-                        .cornerRadius(35)
-                    Text("Hasan Yavuz")
-                        .font(.title)
-                        .foregroundColor(Color.white)
-                        .fontWeight(.semibold)
-                })
-                .padding(.top, 50)
-                VStack(alignment: .leading, spacing: 10) {
-                    TabButton(image: "timer", title: "Timer", selectedTab: $selectedTab, animation: animation)
-                    
-                    TabButton(image: "chart.bar", title: "Progress", selectedTab: $selectedTab, animation: animation)
-                    
-                    TabButton(image: "person.2", title: "Friends", selectedTab: $selectedTab, animation: animation)
-                    
-                    TabButton(image: "clock.arrow.circlepath", title: "History", selectedTab: $selectedTab, animation: animation)
+            SideMenu(selectedTab: $selectedTab)
+            
+            ZStack {
+                Home(selectedTab: $selectedTab)
+                    .cornerRadius(showMenu ? 15 : 0)
+            }
+            .scaleEffect(showMenu ? 0.84 : 1)
+            .offset(x: showMenu ? getRect().width - 120 : 0)
+            .ignoresSafeArea()
+            .overlay {
+                Button {
+                    withAnimation(.spring()){
+                        showMenu.toggle()
+                    }
+                } label: {
+                    Text("Button")
+                        .foregroundColor(.black)
                 }
-                .padding(.top,60)
+                .padding()
                 
-                Spacer()
+
+            }
                 
-                TabButton(image: "gearshape", title: "Settings", selectedTab: $selectedTab, animation: animation)
-                
-                TabButton(image: "rectangle.righthalf.inset.filled.arrow.right", title: "Log Out", selectedTab: $selectedTab, animation: animation)
-                Text("App Version 1.0")
-                    .font(.caption)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                    .opacity(0.6)
-                    .padding(.leading,13)
-            })
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
     }
 }
@@ -64,4 +47,12 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
     }
+}
+
+extension View {
+    
+    func getRect() -> CGRect {
+        return UIScreen.main.bounds
+    }
+    
 }
