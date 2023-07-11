@@ -42,7 +42,7 @@ struct SideMenu: View {
             
             TabButton(image: "gearshape", title: "Settings", selectedTab: $selectedTab, animation: animation)
             
-            TabButton(image: "rectangle.righthalf.inset.filled.arrow.right", title: "Log Out", selectedTab: $selectedTab, animation: animation)
+            TabButton(image: "rectangle.righthalf.inset.filled.arrow.right", title: "Log Out", selectedTab: .constant(""), animation: animation)
             Text("App Version 1.0")
                 .font(.caption)
                 .fontWeight(.semibold)
