@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3052BBCF2A606D2F00F367A5 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052BBCE2A606D2F00F367A5 /* TimerModel.swift */; };
 		306643122A5C37640022D709 /* TimerAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306643112A5C37640022D709 /* TimerAppApp.swift */; };
 		306643142A5C37640022D709 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306643132A5C37640022D709 /* ContentView.swift */; };
 		306643162A5C37650022D709 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 306643152A5C37650022D709 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3052BBCE2A606D2F00F367A5 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		3066430E2A5C37640022D709 /* TimerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		306643112A5C37640022D709 /* TimerAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerAppApp.swift; sourceTree = "<group>"; };
 		306643132A5C37640022D709 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3052BBCD2A606D2200F367A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3052BBCE2A606D2F00F367A5 /* TimerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		306643052A5C37640022D709 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		306643102A5C37640022D709 /* TimerApp */ = {
 			isa = PBXGroup;
 			children = (
+				3052BBCD2A606D2200F367A5 /* Model */,
 				306643202A5C37AC0022D709 /* View */,
 				306643112A5C37640022D709 /* TimerAppApp.swift */,
 				306643132A5C37640022D709 /* ContentView.swift */,
@@ -165,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3052BBCF2A606D2F00F367A5 /* TimerModel.swift in Sources */,
 				306643142A5C37640022D709 /* ContentView.swift in Sources */,
 				306643242A5C3DC70022D709 /* TabButton.swift in Sources */,
 				3066432A2A5C57FE0022D709 /* Home.swift in Sources */,
