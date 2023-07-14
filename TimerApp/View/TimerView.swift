@@ -35,6 +35,7 @@ struct TimerView: View {
                             .fill(.white)
                             .padding(10)
                     }
+                    .offset(x: 0, y: 160)
             }
         }
         // Timer Screen Here...
