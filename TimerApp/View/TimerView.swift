@@ -36,6 +36,9 @@ struct TimerView: View {
                             .padding(10)
                     }
                     .offset(x: 0, y: 160)
+                Text("00:00")
+                    .fontWeight(.semibold)
+                    .font(.largeTitle)
             }
         }
         // Timer Screen Here...
