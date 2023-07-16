@@ -53,10 +53,34 @@ struct TimerView: View {
                                 .offset(x: size.height / 2)
                                 .rotationEffect(.init(degrees: timerModel.progress * 360))
                         }
+                        Text(timerModel.timerStringValue)
+                            .font(.system(size: 45, weight: .light))
+                            .rotationEffect(.init(degrees: -90))
                     }
                     .padding(40)
                     .frame(height: proxy.size.width)
                     .rotationEffect(.init(degrees: -90))
+                    .animation(.easeInOut, value: timerModel.progress)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    
+                    Button {
+                        if timerModel.isStarted {
+                            
+                        } else {
+                            timerModel.addNewTimer = true
+                        }
+                    } label: {
+                        Image(systemName: !timerModel.isStarted ? "timer" : "pause")
+                            .font(.largeTitle.bold())
+                            .foregroundColor(.white)
+                            .frame(width: 80, height: 80)
+                            .background{
+                                Circle()
+                                    .fill(.blue)
+                            }
+                            .shadow(color: .blue, radius: 8, x: 0, y: 0)
+                    }
+
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             }

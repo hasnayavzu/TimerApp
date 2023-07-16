@@ -44,13 +44,8 @@ struct Home_Previews: PreviewProvider {
 struct Timer: View {
     var body: some View {
         NavigationView {
-            
-            Text("Timer")
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .foregroundColor(.primary)
-                .navigationTitle("Timer")
-            
+            TimerView()
+                .environmentObject(TimerModel())
         }
     }
 }
