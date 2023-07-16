@@ -9,5 +9,5 @@ import SwiftUI
 
 class TimerModel: NSObject, ObservableObject {
     // Timer Properties...
-    
+    @Published var progress: CGFloat = 1
 }
