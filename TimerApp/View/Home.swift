@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct Home: View {
-    
     @Binding var selectedTab: String
-    
+
     // Hiding Tab Bar...
     init(selectedTab: Binding<String>) {
-        self._selectedTab = selectedTab
+        _selectedTab = selectedTab
         UITabBar.appearance().isHidden = false
     }
-    
+
     var body: some View {
-        
         // Tab View With Tabs...
         TabView(selection: $selectedTab) {
             Timer()
@@ -53,13 +51,11 @@ struct Timer: View {
 struct Progress: View {
     var body: some View {
         NavigationView {
-            
             Text("Progress")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundColor(.primary)
                 .navigationTitle("Progress")
-            
         }
     }
 }
@@ -67,13 +63,11 @@ struct Progress: View {
 struct Friends: View {
     var body: some View {
         NavigationView {
-            
             Text("Friends")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundColor(.primary)
                 .navigationTitle("Friends")
-            
         }
     }
 }
@@ -81,13 +75,11 @@ struct Friends: View {
 struct History: View {
     var body: some View {
         NavigationView {
-            
             Text("History")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundColor(.primary)
                 .navigationTitle("History")
-            
         }
     }
 }
@@ -95,14 +87,11 @@ struct History: View {
 struct Settings: View {
     var body: some View {
         NavigationView {
-            
             Text("Settings")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .foregroundColor(.primary)
                 .navigationTitle("Settings")
-            
         }
     }
 }
-

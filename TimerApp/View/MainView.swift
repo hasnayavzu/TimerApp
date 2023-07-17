@@ -10,44 +10,41 @@ import SwiftUI
 struct MainView: View {
     @State var selectedTab = "Timer"
     @State var showMenu = false
-    
+
     var body: some View {
         ZStack {
             Color.blue
                 .ignoresSafeArea(.all)
             // Side Menu
             SideMenu(selectedTab: $selectedTab)
-            
+
             ZStack {
-                
                 Color.white
                     .opacity(0.5)
                     .cornerRadius(showMenu ? 15 : 0)
                     .shadow(color: Color.black.opacity(0.07), radius: 5, x: -5, y: 0)
                     .offset(x: showMenu ? -25 : 0)
-                    .padding(.vertical,30)
-                
+                    .padding(.vertical, 30)
+
                 Color.white
                     .opacity(0.4)
                     .cornerRadius(showMenu ? 15 : 0)
                     .shadow(color: Color.black.opacity(0.07), radius: 5, x: -5, y: 0)
                     .offset(x: showMenu ? -50 : 0)
-                    .padding(.vertical,60)
-                
-                
+                    .padding(.vertical, 60)
+
                 Home(selectedTab: $selectedTab)
                     .cornerRadius(showMenu ? 15 : 0)
             }
             .scaleEffect(showMenu ? 0.84 : 1)
             .offset(x: showMenu ? getRect().width - 120 : 0)
             .ignoresSafeArea()
-            .overlay (
-                Button( action: {
-                    withAnimation(.spring()){
+            .overlay(
+                Button(action: {
+                    withAnimation(.spring()) {
                         showMenu.toggle()
                     }
                 }, label: {
-                    
                     VStack(spacing: 5) {
                         Capsule()
                             .fill(showMenu ? Color.white : Color.primary)
@@ -65,11 +62,11 @@ struct MainView: View {
                         }
                         .rotationEffect(.init(degrees: showMenu ? 45 : 0))
                     }
-                    
+
                 })
                 .padding()
-                
-                ,alignment: .topLeading
+
+                , alignment: .topLeading
             )
         }
     }
@@ -82,9 +79,7 @@ struct MainView_Previews: PreviewProvider {
 }
 
 extension View {
-    
     func getRect() -> CGRect {
         return UIScreen.main.bounds
     }
-    
 }
