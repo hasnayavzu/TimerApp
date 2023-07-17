@@ -81,6 +81,90 @@ struct TimerView: View {
             }
         }
         .padding()
+        .overlay {
+            ZStack {
+                Color.black
+                    .opacity(timerModel.addNewTimer ? 0.25 : 0)
+                    .onTapGesture {
+                        timerModel.addNewTimer = false
+                    }
+                NewTimerView()
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .offset(y: timerModel.addNewTimer ? 0 : 400)
+            }
+            .ignoresSafeArea()
+            .animation(.easeInOut, value: timerModel.addNewTimer)
+        }
+    }
+
+    @ViewBuilder
+    func NewTimerView() -> some View {
+        VStack(spacing: 15) {
+            Text("Add New Timer")
+                .font(.title2.bold())
+                .foregroundColor(.blue)
+                .padding(.top, 10)
+            HStack(spacing: 15) {
+                Text("\(timerModel.hours) hr")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white.opacity(0.8))
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 12)
+                    .background {
+                        Capsule()
+                            .fill(.blue.opacity(0.3))
+                    }
+
+                Text("\(timerModel.minutes) min")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white.opacity(0.8))
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 12)
+                    .background {
+                        Capsule()
+                            .fill(.blue.opacity(0.3))
+                    }
+
+                Text("\(timerModel.seconds) sec")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white.opacity(0.8))
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 12)
+                    .background {
+                        Capsule()
+                            .fill(.blue.opacity(0.3))
+                    }
+            }
+            .padding(.top, 20)
+
+            Button {
+            } label: {
+                Text("Save")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .padding(.vertical)
+                    .padding(.horizontal, 100)
+                    .background {
+                        Capsule()
+                            .fill(.blue)
+                    }
+            }
+            .disabled(timerModel.seconds == 0)
+            .opacity(timerModel.seconds == 0 ? 0.5 : 1)
+            .padding(.top)
+            .padding(.bottom)
+        }
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background {
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .fill(.white)
+                .ignoresSafeArea()
+        }
     }
 }
 
