@@ -52,7 +52,7 @@ struct TimerView: View {
                         }
                         Text(timerModel.timerStringValue)
                             .font(.system(size: 45, weight: .light))
-                            .rotationEffect(.init(degrees: -90))
+                            .rotationEffect(.init(degrees: 90))
                     }
                     .padding(40)
                     .frame(height: proxy.size.width)
@@ -62,6 +62,7 @@ struct TimerView: View {
 
                     Button {
                         if timerModel.isStarted {
+                            timerModel.stopTimer()
                         } else {
                             timerModel.addNewTimer = true
                         }
@@ -95,6 +96,21 @@ struct TimerView: View {
             .ignoresSafeArea()
             .animation(.easeInOut, value: timerModel.addNewTimer)
         }
+        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) {
+            _ in
+            if timerModel.isStarted {
+                timerModel.updateTimer()
+            }
+        }
+        .alert("Congratulations, Timer Completed!", isPresented: $timerModel.isFinished) {
+            Button("Start New", role: .cancel) {
+                timerModel.stopTimer()
+                timerModel.addNewTimer = true
+            }
+            Button("Close", role: .destructive) {
+                timerModel.stopTimer()
+            }
+        }
     }
 
     @ViewBuilder
@@ -115,6 +131,11 @@ struct TimerView: View {
                         Capsule()
                             .fill(.blue.opacity(0.3))
                     }
+                    .contextMenu {
+                        ContextMenuOptions(maxValue: 12, hint: "hr") { value in
+                            timerModel.hours = value
+                        }
+                    }
 
                 Text("\(timerModel.minutes) min")
                     .font(.title3)
@@ -125,6 +146,11 @@ struct TimerView: View {
                     .background {
                         Capsule()
                             .fill(.blue.opacity(0.3))
+                    }
+                    .contextMenu {
+                        ContextMenuOptions(maxValue: 60, hint: "min") { value in
+                            timerModel.minutes = value
+                        }
                     }
 
                 Text("\(timerModel.seconds) sec")
@@ -137,10 +163,16 @@ struct TimerView: View {
                         Capsule()
                             .fill(.blue.opacity(0.3))
                     }
+                    .contextMenu {
+                        ContextMenuOptions(maxValue: 60, hint: "sec") { value in
+                            timerModel.seconds = value
+                        }
+                    }
             }
             .padding(.top, 20)
 
             Button {
+                timerModel.startTimer()
             } label: {
                 Text("Save")
                     .font(.title3)
@@ -164,6 +196,15 @@ struct TimerView: View {
             RoundedRectangle(cornerRadius: 10, style: .continuous)
                 .fill(.white)
                 .ignoresSafeArea()
+        }
+    }
+
+    @ViewBuilder
+    func ContextMenuOptions(maxValue: Int, hint: String, onClick: @escaping (Int) -> Void) -> some View {
+        ForEach(0 ... maxValue, id: \.self) { value in
+            Button("\(value) \(hint)") {
+                onClick(value)
+            }
         }
     }
 }

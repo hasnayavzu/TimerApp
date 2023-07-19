@@ -13,13 +13,13 @@ struct Home: View {
     // Hiding Tab Bar...
     init(selectedTab: Binding<String>) {
         _selectedTab = selectedTab
-        UITabBar.appearance().isHidden = false
+        UITabBar.appearance().isHidden = true
     }
 
     var body: some View {
         // Tab View With Tabs...
         TabView(selection: $selectedTab) {
-            Timer()
+            TimerPage()
                 .tag("Timer")
             Progress()
                 .tag("Progress")
@@ -39,7 +39,7 @@ struct Home_Previews: PreviewProvider {
     }
 }
 
-struct Timer: View {
+struct TimerPage: View {
     var body: some View {
         NavigationView {
             TimerView()
