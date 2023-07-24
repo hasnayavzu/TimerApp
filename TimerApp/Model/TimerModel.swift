@@ -18,9 +18,12 @@ class TimerModel: NSObject, ObservableObject {
     @Published var minutes: Int = 0
     @Published var seconds: Int = 0
 
+    // Getting time when we leave the app
+    @Published var leftTime: Date = Date()
+
     @Published var totalSeconds: Int = 0
     @Published var staticTotalSeconds: Int = 0
-    
+
     @Published var isFinished: Bool = false
 
     func startTimer() {
@@ -55,7 +58,6 @@ class TimerModel: NSObject, ObservableObject {
         timerStringValue = "\(hours == 0 ? "" : "\(hours):")\(minutes >= 10 ? "\(minutes)" : "\(minutes)"):\(seconds >= 10 ? "\(seconds)" : "0\(seconds)")"
         if hours == 0 && minutes == 0 && seconds == 0 {
             isStarted = false
-            print("finished")
             isFinished = true
         }
     }

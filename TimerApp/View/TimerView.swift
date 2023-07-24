@@ -167,7 +167,7 @@ struct TimerView: View {
                         ContextMenuOptions(maxValue: 60, hint: "sec") { value in
                             timerModel.seconds = value
                         }
-                    }
+                    } 
             }
             .padding(.top, 20)
 
