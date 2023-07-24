@@ -27,11 +27,17 @@ struct TimerAppApp: App {
                 print(data.seconds)
                 print("bırt")
             }
-            if newScene == .active{
+            if newScene == .active {
                 //when it enter app again
                 let diff = Date().timeIntervalSince(data.leftTime)
                 
-                print(Int(diff))
+                let currentTime = data.totalSeconds - Int(diff)
+                
+                if currentTime >= 0 {
+                    withAnimation(.default) {
+                        data.
+                    }
+                }
             }
         }
     }
